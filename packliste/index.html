@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<title>Packliste</title>
+	<link rel="icon" type="image/png" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/whatsapp/302/backpack_1f392.png"/>
+</head>
+
+<body>
+	<style>
+		input[type=checkbox]:checked + label.strikethrough {
+			text-decoration: line-through;
+			color: #999999;
+		}
+	</style>
+	<header>
+		<nav class="navbar fixed-top navbar-dark bg-dark">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1">Packliste</span>
+			</div>
+		</nav>
+	</header>
+	<main class="container">
+		<div id="packlistenContainer" class="list-group mb-5" style="margin-top: 50px;">
+		</div>
+	</main>
+
+	<script type="text/javascript">
+		var lists = [
+			{	name: "Basics",
+				items: [
+					"Unterhosen",
+					"Socken kurz / lang",
+					"Hosen kurz / lang",
+					"Shirts kurz / lang",
+					"Hemd",
+					"Pulli / Fleece",
+					"Gürtel",
+					"Kappe",
+					"Schal / Haube / Handschuhe",
+					"Regenjacke",
+					"Schuhe",
+					"Wasserflasche"
+				]
+			}, {name: "Hygiene",
+				items: [
+					"Zahnbürste, -pasta",
+					"Shampoo + Deo",
+					"Handtuch (Strand / groß / klein)",
+					"Taschentücher (+ feucht)",
+					"Rasierer / Pinzette / Wattestäbchen / Nagelknipser",
+					"Oropax",
+					"Schmerzmittel",
+					"Desinfekt",
+					"Blasenpflaster / Tape / EH-Set",
+					"Sonnencreme",
+					"Reisepass / Impfpass / Bargeld / Tickets",
+					"Sonnenbrille",
+					"Notizbuch + Stift",
+					"Nähzeug",
+				]
+			}, {name: "Sport",
+				items: [
+					"Sportshirt, -shorts, -socken",
+					"Sportschuhe",
+					"Badehose",
+					"Flip Flops",
+				]
+			}, {name: "Wandern",
+				items: [
+					"Wanderschuhe, -socken",
+					"Feuerzeug",
+					"Taschenmesser",
+					"Gaskocher + Kaffeezeug + Gewürze + Göffel",
+					"Gaffaband + Superkleber",
+					"Stirnlampe / Lampe",
+					"Zelt / Tarp / Hängematte",
+					"Schlafsack / Drybag / Isomatte",
+				]
+			}, {name: "Elektronik",
+				items: [
+					"Ladegerät + Ladekabel",
+					"Powerbank",
+					"Kopfhörer",
+					"Stromadapter",
+					"Kamera (analog / digital)",
+					"Film / Speicherkarte",
+				]
+			}, {name: "ToDo",
+				items: [
+					"Laden: Powerbank / Kamera / Kopfhörer / Laptop",
+					"Haare schneiden",
+					"Rasieren",
+					"Nägel knipsen",
+					"Pflanzen gießen",
+					"Müll rausbringen",
+					"Kühlschrank + Geschirrspüler leeren",
+					"Heizung runterdrehen",
+					"Auto bereit machen (Ölstand / Reifendruck)"
+				]
+			}
+		];
+		html = "";
+		teile = 0;
+
+		function createCheck(thing) {
+			return	'<label class="list-group-item">' +
+						'<input type="checkbox" class="form-check-input me-2" id="' + thing + '">' +
+						'<label for="' + thing + '" class="strikethrough">' + thing + '</label>' +
+					'</label>';
+		}
+
+		function createList(packliste) {
+			html += '<h1 class="h4 mt-2">' + packliste.name + '</h1>';
+			html += '<div id="packliste' + teile++ + '" class="list-group mb-3">';
+			packliste.items.forEach(thing => html += createCheck(thing));
+			html += '</div>';
+		}
+
+		lists.forEach(packliste => createList(packliste));
+		document.getElementById("packlistenContainer").innerHTML = html;
+	</script>
+</body>
