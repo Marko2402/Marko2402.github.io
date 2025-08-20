@@ -40,26 +40,26 @@
 					"Pulli / Fleece",
 					"Gürtel",
 					"Kappe",
-					"Schal / Haube / Handschuhe",
+					"Buff / Schal / Haube / Handschuhe",
 					"Regenjacke",
-					"Schuhe",
+					"Div. Schuhe",
 					"Wasserflasche",
 					"Reisepass / Impfpass / Bargeld / Tickets",
 					"Sonnenbrille",
-					"Notizbuch + Stift"
+					"Stift + Notizbuch"
 				]
 			}, {name: "Hygiene",
 				items: [
-					"Zahnbürste, -pasta",
+					"Zahnbürste & -pasta",
 					"Shampoo + Deo",
 					"Handtuch (Strand / groß / klein)",
-					"Taschentücher (+ feucht)",
+					"Taschentücher / feuchte TT",
 					"Rasierer / Pinzette / Wattestäbchen / Nagelknipser",
 					"Oropax",
 					"Schmerzmittel",
-					"Desinfekt",
+					"(Wund-) Desinfekt",
 					"Blasenpflaster / Tape / EH-Set",
-					"Sonnencreme"
+					"Sonnencreme + Labello + After Sun"
 				]
 			}, {name: "Sport",
 				items: [
@@ -67,18 +67,35 @@
 					"Sportschuhe",
 					"Badehose",
 					"Flip Flops",
+					"Wanderschuhe, -socken"
 				]
-			}, {name: "Wandern",
+			}, {name: "Draußen schlafen",
 				items: [
-					"Wanderschuhe, -socken",
-					"Feuerzeug",
 					"Taschenmesser",
-					"Gaskocher + Kaffeezeug + Gewürze + Göffel",
+					"Feuerzeug",
+					"Gaskocher + Becher + Göffel",
+					"Kaffee + Gewürze",
 					"Gaffaband + Superkleber",
 					"Stirnlampe / Lampe",
 					"Zelt / Tarp / Hängematte",
-					"Schlafsack / Drybag / Isomatte",
+					"Schlafsack / Kissen / Biwaksack",
+					"Isomatte",
+					"Campingsessel",
 					"Nähzeug"
+				]
+			}, {name: "Bikepacking",
+				items: [
+					"Wasserflaschen",
+					"Wahoo",
+					"Lichter",
+					"Flickzeug + Reifenheber + Schlauch + Dichtmilch",
+					"Pumpe",
+					"Multitool",
+					"Kettenwachs /-öl",
+					"Radhosen",
+					"Radbrille",
+					"Radhandschuhe",
+					"Helm"
 				]
 			}, {name: "Elektronik",
 				items: [
@@ -114,7 +131,7 @@
 		}
 
 		function createList(packliste) {
-			html += '<h1 class="h4 mt-2">' + packliste.name + '</h1>';
+			html += '<h2 class="h4 mt-2">' + packliste.name + '</h2>';
 			html += '<div id="packliste' + teile++ + '" class="list-group mb-3">';
 			packliste.items.forEach(thing => html += createCheck(thing));
 			html += '</div>';
